@@ -3,11 +3,12 @@ import './style.scss'
 
 type botaoTypes = {
     children: React.ReactNode;
+    type?: "button" | "submit" | "reset" | undefined
 }
 
-function Botao({children}: botaoTypes) {
+function Botao({children, type}: botaoTypes) {
         return (
-            <button className="botao">{children}</button>
+            <button type={type} className="botao">{children}</button>
         ) 
 }
 
