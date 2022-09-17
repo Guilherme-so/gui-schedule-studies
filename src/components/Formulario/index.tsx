@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import Botao from "../Botao"
-import "./style.scss"
-
 import {Tarefa} from "../../types/tarefa"
+import {v4 as uuidv4} from "uuid"
+import "./style.scss"
 
 const Formulario = ({setTarefas}:{setTarefas: React.Dispatch<React.SetStateAction<Tarefa[]>>})=> {
     const [tarefa, setTarefa] = useState("")
@@ -12,7 +12,10 @@ const Formulario = ({setTarefas}:{setTarefas: React.Dispatch<React.SetStateActio
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        setTarefas((antigaTarefa) => [...antigaTarefa, {tarefa: tarefa, tempo: tempo}])
+        setTarefas((antigaTarefa) => [...antigaTarefa, {tarefa: tarefa, tempo: tempo,
+        selecionado: false, completado: false, id: uuidv4() }])
+        setTarefa("")
+        setTempo("")
     }
     
     return (
