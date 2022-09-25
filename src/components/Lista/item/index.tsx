@@ -1,3 +1,4 @@
+import { CheckSquareOffset } from "phosphor-react";
 import { Tarefa } from "../../../types/tarefa";
 import styles from "./item.module.css"
 
@@ -15,7 +16,7 @@ export default function Item({
 }: Props) {
 
     return (
-    <li className={`${styles.item} ${selecionado ?  styles.itemSelecionado : ""}`} onClick={() =>selecionaTarefa({
+    <li className={`${styles.item} ${selecionado ?  styles.itemSelecionado : ""} ${completado ? styles.itemCompletado : ""}`} onClick={() =>selecionaTarefa({
         id,
         tarefa,
         tempo,
@@ -24,6 +25,11 @@ export default function Item({
     })}>
       <h3>{tarefa}</h3>
       <span>{tempo}</span>
+      {completado && (
+      <span className={styles.concluido} aria-label="">
+        <CheckSquareOffset size={32} />
+      </span>
+      )}
     </li>
   );
 }

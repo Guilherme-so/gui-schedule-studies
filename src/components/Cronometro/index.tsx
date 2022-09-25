@@ -7,9 +7,10 @@ import { useEffect, useState } from "react";
 
 interface Props {
     selecionado : Tarefa | undefined
+    finalizarTarefa: () => void
 }
 
-export default function Cronometro({selecionado}: Props) {
+export default function Cronometro({selecionado,finalizarTarefa}: Props) {
     const [tempo, setTempo] = useState<number>()
 
     useEffect(() => {
@@ -18,14 +19,25 @@ export default function Cronometro({selecionado}: Props) {
         }
     }, [selecionado])
 
+
+    function contagemRegressiva(contador : number = 0){
+        setTimeout(() => {
+            if(contador > 0){
+                setTempo(contador -1)
+                return contagemRegressiva(contador -1)
+            } else{
+                finalizarTarefa()
+            }
+        }, 1000)
+    }
+
     return (
         <div className="cronometro">
             <p className="titulo">Escolha um card e inicie o cronometro</p>
-            tempo: {tempo}
             <div className="relogioWrapper">
-                <Relogio/>
+                <Relogio tempo={tempo}/>
             </div>
-            <Botao>Começar</Botao>
+            <Botao onClick={() => contagemRegressiva(tempo)}>Começar</Botao>
         </div>
     )
 }

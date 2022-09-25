@@ -8,8 +8,6 @@ const Formulario = ({setTarefas}:{setTarefas: React.Dispatch<React.SetStateActio
     const [tarefa, setTarefa] = useState("")
     const [tempo, setTempo] = useState("00:00")
 
-    console.log(tarefa, tempo)
-
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
         setTarefas((antigaTarefa) => [...antigaTarefa, {tarefa: tarefa, tempo: tempo,

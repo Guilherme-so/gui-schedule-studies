@@ -23,12 +23,12 @@
   }
   
   .itemSelecionado {
-    background-color: tomato;
+    background-color: #7687A1;
     box-shadow: 2px 4px 4px #0000009F inset;
   }
   
   .itemCompletado {
-    background-color: #566F42;
+    background-color: rgb(148, 194, 78);
     cursor: auto;
   
   }
@@ -36,9 +36,6 @@
   
   .itemCompletado .concluido {
     display: block;
-    background-image: url("../../assets/img/check-mark.svg");
-    background-repeat: no-repeat;
-    background-size: 38px 38px;
     position: absolute;
     top: 50%;
     right: 12px;
