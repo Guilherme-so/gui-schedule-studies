@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
-    "include": ["./src/**/*.tsx", "./src/**/*.ts", "./typings/*.ts"],
     "target": "es5",
     "lib": [
       "dom",
@@ -24,5 +23,7 @@
   },
   "include": [
     "src",
-  ]
+    "./src/**/*.tsx", "./src/**/*.ts", "./typings/*.ts"
+  ],
+  "plugins": [{ "name": "typescript-plugin-css-modules" }],
 }

@@ -7,12 +7,21 @@ import { Tarefa } from '../types/tarefa';
 
 function App() {
   const [tarefas, setTarefas] = useState<Tarefa[]>([])
+  const [selecionado, setSelecionado] = useState<Tarefa>()
+
+  function selecionaTarefa(tarefaSelecionada:Tarefa){
+    setSelecionado(tarefaSelecionada)
+    setTarefas(oldOnes => oldOnes.map((tarefa) => ({
+      ...tarefa,
+      selecionado: tarefaSelecionada.id === tarefa.id ? true : false
+    })))
+  }
 
   return (
     <div className='AppStyle'>
       <Formulario setTarefas={setTarefas}/>
-      <Lista tarefas={tarefas}/>
-      <Cronometro />
+      <Lista selecionaTarefa={selecionaTarefa} tarefas={tarefas}/>
+      <Cronometro selecionado={selecionado} />
     </div>
   );
 }
