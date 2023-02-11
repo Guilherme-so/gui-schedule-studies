@@ -9,16 +9,16 @@ function App() {
   const [tarefas, setTarefas] = useState<Tarefa[]>([]);
   const [selecionado, setSelecionado] = useState<Tarefa>();
 
-  useEffect(() => {
-    if(tarefas.length != 0) {
-      localStorage.setItem('key', JSON.stringify(tarefas));
-    }    
-    if(localStorage.hasOwnProperty('key')) {
-      let data:any = localStorage.getItem('key')
-      const parsedData = JSON.parse(data)
-      setTarefas(parsedData)
-    }
-  },[tarefas])
+  // useEffect(() => {
+  //   if(tarefas.length != 0) {
+  //     localStorage.setItem('key', JSON.stringify(tarefas));
+  //   }    
+  //   if(localStorage.hasOwnProperty('key')) {
+  //     let data:any = localStorage.getItem('key')
+  //     const parsedData = JSON.parse(data)
+  //     setTarefas(parsedData)
+  //   }
+  // },[tarefas])
 
 
 
